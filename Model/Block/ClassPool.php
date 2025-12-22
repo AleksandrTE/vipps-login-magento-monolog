@@ -18,6 +18,6 @@ class ClassPool implements ClassPoolInterface
 
     public function get(): string
     {
-        return $this->pool->get();
+        return (string)$this->pool->get();
     }
 }
