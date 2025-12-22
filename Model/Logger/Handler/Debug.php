@@ -21,6 +21,7 @@ namespace Vipps\Login\Model\Logger\Handler;
 use Magento\Framework\Filesystem\DriverInterface;
 use Magento\Framework\Logger\Handler\Base;
 use Monolog\Logger;
+use Monolog\LogRecord;
 use Vipps\Login\Model\ConfigInterface;
 
 /**
@@ -63,11 +64,11 @@ class Debug extends Base
     /**
      * {@inheritdoc}
      *
-     * @param array $record
+     * @param LogRecord $record
      *
      * @return bool
      */
-    public function isHandling(array $record): bool
+    public function isHandling(LogRecord $record): bool
     {
         if ($this->config && (bool)$this->config->isDebug()) {
             return parent::isHandling($record);
