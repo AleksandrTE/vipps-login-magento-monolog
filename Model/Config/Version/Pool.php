@@ -6,6 +6,7 @@ namespace Vipps\Login\Model\Config\Version;
 
 use Vipps\Login\Model\Config\Config;
 use Vipps\Login\Model\Config\Source\Version;
+use Magento\Framework\App\ObjectManager;
 
 class Pool
 {
