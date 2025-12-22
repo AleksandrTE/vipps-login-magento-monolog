@@ -13,17 +13,19 @@ class Pool
     private Config $config;
 
     public function __construct(
-        array  $pool,
-        Config $config
+        ?array  $pool = null,
+        Config $config = null
     ) {
-        $this->pool = $pool;
-        $this->config = $config;
+        $this->pool = $pool ?? [];
+        $this->config = $config ?? ObjectManager::getInstance()->get(Config::class);
     }
 
     public function get()
     {
         $versionCode = $this->config->getVersion();
 
-        return $this->pool[$versionCode] ?? $this->pool[Version::CONFIG_VIPPS];
+        return $this->pool[$versionCode]
+            ?? $this->pool[Version::CONFIG_VIPPS]
+            ?? null;
     }
 }
